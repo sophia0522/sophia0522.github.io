@@ -7,27 +7,67 @@
     <title>Document</title>
     <style>
         article{
-            width: 960px;            
+            width: 960px;
+            
+        }
+        a{
+            text-decoration: none;
         }
         .main-menu{
             width: 960px;
             height: 100px;
             position: fixed;
+            top: 0px;
             display: flex;
             align-items: center;
+            background-color: white;
+            justify-content: space-between;
             
-            
+                                    
         }
         .main-menu img{
-            width: 130px;
-            
-        }
-        .main-menu.main-choose {
-            display: flex;
-            
-            width: 670px;            
+            width: 110px;
+            margin: 10px;
+
+                  /* 上   右   下   左 */
         }
         
+        .main-choose {
+            display: flex;
+            width: 720px;
+            justify-content: space-evenly;
+                                               
+        }
+        nav a{
+            width: 125px;
+            color: black;           
+        }
+        .free_download{
+            width: 110px;
+            margin: 5px;
+        }
+        .free_download a{
+            color: white;
+            border-radius: 30px;
+            width: 110px;
+            background-color: rgb(9, 200, 6);
+            height: 40px;
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+        }
+        .content_image{
+            width: 960px;
+            padding-top: 90px; 
+            background-image: url(image/valid-number-1440.jpg);
+            background-size: cover;
+                 
+        }
+        .content_image_right{
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+        }
         
     </style>
 </head>
@@ -35,7 +75,7 @@
     <article>
         <header>
             <div class="main-menu">
-                <img src="image/asset 6.svg" alt="logo">
+                <img class="logo" src="image/asset 6.svg" alt="logo">
                 <nav class="main-choose">
                     <a href="">Whoscall進階版</a>
                     <a href="">Whoscall認證號碼</a>
@@ -43,14 +83,15 @@
                     <a href="">Whoscall專欄</a>
                     <a href="">常見問題</a>
                 </nav>
-                <div class="button_download">
+                <div class="free_download">
                     <a href="">免費下載</a>
                 </div>
-            </div>
-            
-            
-            
+            </div>            
         </header>
+        <div class="content_image">
+            <img class="content_image_left" src="image/asset 7.svg" alt="">
+            <img class="content_image_right" src="image/asset 8.svg" alt="">
+        </div>
         <!-- <p>Whoscall認證號碼<br>電話接通前<br>讓專業形象為你開場</p> -->
 
     </article>
