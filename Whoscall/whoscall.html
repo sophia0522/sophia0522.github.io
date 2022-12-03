@@ -6,25 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
-            width: 960px;
+        article{
+            width: 960px;            
         }
+        .main-menu{
+            width: 960px;
+            height: 100px;
+            position: fixed;
+            display: flex;
+            align-items: center;
+            
+            
+        }
+        .main-menu img{
+            width: 130px;
+            
+        }
+        .main-menu.main-choose {
+            display: flex;
+            
+            width: 670px;            
+        }
+        
         
     </style>
 </head>
 <body>
-    <header>
-        <img src="image/asset 6.svg" alt="">
-        <nav class="main">
-            <a href="">Whoscall進階版</a>
-            <a href="">Whoscall認證號碼</a>
-            <a href="">認識Whoscall</a>
-            <a href="">Whoscall專欄</a>
-            <a href="">常見問題</a>
-        </nav>
-        
-    </header>
-    <p>電話接通前<br>讓專業形象為你開場</p>
+    <article>
+        <header>
+            <div class="main-menu">
+                <img src="image/asset 6.svg" alt="logo">
+                <nav class="main-choose">
+                    <a href="">Whoscall進階版</a>
+                    <a href="">Whoscall認證號碼</a>
+                    <a href="">認識Whoscall</a>
+                    <a href="">Whoscall專欄</a>
+                    <a href="">常見問題</a>
+                </nav>
+                <div class="button_download">
+                    <a href="">免費下載</a>
+                </div>
+            </div>
+            
+            
+            
+        </header>
+        <!-- <p>Whoscall認證號碼<br>電話接通前<br>讓專業形象為你開場</p> -->
+
+    </article>
+    
     
 </body>
 </html>
