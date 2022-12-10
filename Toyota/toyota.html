@@ -10,28 +10,102 @@
             width: 960px;
             margin: auto;
         }
+        span{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            font-size: 55px;
+            height: 130px;
+            
+        }
+        
         .experience{
             width: 320px;
             background-color: black;
+            color: white;
+            position: absolute;
+            left: 150px;
+            top: 128px;
+            z-index: 3;
         }
-        .title{
-            color: white
-            
+        .number{
+            transform: rotate(90deg);
+            font-size: 80px;
         }
-        .pic{
+        .content{
+            padding: 10px;
+            line-height: 30px;
+        }
+        .content h2{
+            margin-top: 0;
+        }
+        .main-pic{
             width: 680px;
-            height: 430px;
+            padding-left: 200px;
+            padding-top: 250px;
+            position: relative;
+            z-index: 2;
+        }
+        .main-pic img{
+            vertical-align: middle;
+        }
+        .play{
+            z-index: 3;
+            position: absolute;
+            right: 205px;
+            top: 475px;
+        }
+        .grey{
+            width: 400px;
+            height: 250px;
+            background-color: #F2F2F2;
+            z-index: 1;
+            position: absolute;
+            right: 150px;
+            top: 185px;
         }
         .innovation{
             width: 640px;
             padding: 10px;
             background-color: #F2F2F2;
+            position: absolute;
+            left: 150px;
+            top: 625px;
+            z-index: 3;
         }
-        .item{
+        .innovation .title{
+            display: inline-block;
+            justify-content: center;
+            align-items: center;
+        }
+        .innovation h3{
+            color: #bb0404;
+            display: inline-block;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        .innovation hr{
+            display: inline-block;
+            width: 400px;
+            height: 1.5px;
+            border: none;
+            background-color: #bb0404;
+            padding-left: 5px;
+        }
+        .item-name{
             color: white;
             background-color: black;
             margin: auto;
             padding: 5px 10px;
+        }
+        .innovation .item .text {
+            display: flex;
+            align-items: center;
+        }
+        .innovation .item .text .dot{
+            color: #bb0404;
+            margin: 5px;
         }
     </style>
 </head>
@@ -39,8 +113,10 @@
     <section class="all">
         <section class="experience">
             <section class="title">
-                <p class="number">01</p>
-                <h1>操控樂趣</h1>
+                <span style="background-color: #bb0404;">
+                    <p class="number">01</p>
+                    <h1>操控樂趣</h1> 
+                </span>               
             </section>
             <section class="content">
                 <h2>人人滿意的駕駛體驗</h2>
@@ -48,23 +124,45 @@
             </section>
         </section>
     
-        <div class="pic">
+        <div class="main-pic">
             <img src="image/toyota1.png" alt="">
         </div>
+
+        <div class="play">
+            <img src="image/play.png" alt="">
+        </div>
+
+        <div class="grey"></div>
     
         <section class="innovation">
-            <h3>因為我們做了這些革新</h3>
-            <label class="item">低重心設計</label>
-            <p></p>
-            <p>透過低重心設計，不僅呈現更低伏的外觀，更能減少車身側傾，保持高度行駛穩定性。</p>
-            <label class="item">車體剛性強化</label>
-            <p></p>
-            <p>
-                車身結構採用超高強度鋼材，提高車輛穩定性，同時藉由雷射強化焊接技術，大幅增加焊點數量，提升車身抗扭剛性，強化駕駛穩定性及安全性。
-            </p> 
-            <label class="item">四輪獨立懸吊</label>
-            <p></p>
-            <p>搭載全新四輪獨立懸吊設定，透過懸吊的高承載強度，保持輪胎抓地力，同時兼顧轉向靈敏度與清晰路感回饋，提升駕駛樂趣。</p>
+            <div class="title">
+                <h3>因為我們做了這些革新</h3>
+                <hr>
+            </div>
+            <div class="item">
+                <label class="item-name">低重心設計</label>
+                <div class="text">
+                    <p class="dot">•</p>
+                    <p>透過低重心設計，不僅呈現更低伏的外觀，更能減少車身側傾，保持高度行駛穩定性。</p> 
+                </div>
+    
+                <label class="item-name">車體剛性強化</label>
+                <div class="text">
+                    <p class="dot">•</p>
+                    <p>
+                        車身結構採用超高強度鋼材，提高車輛穩定性，同時藉由雷射強化焊接技術，大幅增加焊點數量，提升車身抗扭剛性，強化駕駛穩定性及安全性。
+                    </p> 
+                </div>
+                
+                <label class="item-name">四輪獨立懸吊</label>
+                <div class="text">
+                    <p class="dot">•</p>
+                    <p>搭載全新四輪獨立懸吊設定，透過懸吊的高承載強度，保持輪胎抓地力，同時兼顧轉向靈敏度與清晰路感回饋，提升駕駛樂趣。</p>
+                </div>
+            </div>
+            
+            
+           
             
         </section>
     </section>
