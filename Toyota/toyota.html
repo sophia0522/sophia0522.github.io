@@ -6,17 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-       /* 共用 */
-       
        
        .group{
             width: 960px;
             margin: auto;
             padding: 140px;
             position: relative;
-       }
-       .group:nth-child(n+2){
-            padding-top: 300px;
        }
        
        .feature{
@@ -25,15 +20,13 @@
             background-color: black;
             z-index: 3;
             position: absolute;
-            bottom: 350px;
+            bottom: 550px;
        }
+       
        .group:nth-child(even) .feature{
             right: 150px;
-            top: 170px;
+            top: 10px;
        }
-       /* .group:nth-child(3) .feature{
-            bottom: 330px;
-        } */
        
        .feature-title{
             display: flex;
@@ -43,24 +36,30 @@
             background-color: #bb0404;
             height: 130px;
        }
+       
        .group:nth-child(even) .feature .feature-title{
             flex-direction: row-reverse;
        }
+       
        .feature-title .feature-number{
             transform: rotate(90deg);
             font-size: 80px;
        }
+       
        .feature-content{
             margin: 10px;
             padding: 5px;
             padding-top: 0;
             line-height: 1.7;
        }
+       
        .feature-content h2{
             margin-top: 0;
        }
+      
        .main-pic img{
             width: 680px;
+            padding-bottom: 200px;
             margin: auto;
            display: flex;
             justify-content: center;
@@ -74,11 +73,13 @@
             right: 270px;
             top: 350px;
        }
+      
        .group:nth-child(even) .btn-play{  
             left: 270px;
-            top: 500px;
+            top: 350px;
         }
-       .grey{
+       
+        .grey{
             width: 400px;
             height: 250px;
             background-color: #F2F2F2;
@@ -87,13 +88,11 @@
             top: 70px;
             right: 200px;
        }
+       
        .group:nth-child(even) .grey{
             height: 350px;    
             right: 200px;
-            top: 250px;
-        }
-        .group:nth-child(3) .gray{
-            top: 70px;
+            top: 100px;
         }
 
        .innovation{
@@ -102,17 +101,20 @@
             padding: 5px 20px;
             z-index: 3;
             position: absolute;
-            bottom: -100px;
+            bottom: 100px;
        }
+      
        .group:nth-child(even) .innovation{
             right: 150px;
-            bottom: 0px;
+            bottom: 200px;
         }
-       .innovation .innovation-title{
+      
+        .innovation .innovation-title{
             display: inline-block;
             justify-content: center;
             align-items: center;
        }
+      
        .innovation .innovation-title h3{
             color: #bb0404;
             display: inline-block;
@@ -120,6 +122,7 @@
             font-weight: 700;
             margin: 10px 0;
         }
+      
         .innovation .innovation-title hr{
             display: inline-block;
             width: 400px;
@@ -133,6 +136,7 @@
             line-height: 1.7;
             padding: 5px;
         }
+       
         .innovation .innovation-item-name{
             color: white;
             background-color: black;
@@ -253,7 +257,7 @@
             </section>
              <!-- 主圖片 -->
             <div class="main-pic">
-                <img src="image/toyota3.png" alt="">
+                <img src="image/toyota3.jpg" alt="">
             </div>
              <!-- 按鈕 -->
             <div class="btn-play">
