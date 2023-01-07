@@ -5,9 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
-    <button>right</button>
-    <button>left</button>
+    <div class="content">
+        <button class="left">left</button>
+        <img src="toyota_image/360EXT_1_22_1.png" alt="">
+        <button class="right">right</button>
+    </div>
+    
+    <script>
+        let pic_num=1;
+        const left = document.querySelector('.left')
+        const image = document.querySelector('image')
+        const right = document.querySelector('.right')
+
+        window.onload = function(){
+            right.addEventListener('click',function(){
+            pic_num--;
+            if(pic_num==1){
+                pic_num=60;
+                image.src=`toyota_image/360EXT_1_22_${pic_num}.png`;
+            }else{
+                image.src=`toyota_image/360EXT_1_22_${pic_num}.png`;
+            }
+
+        })
+        left.addEventListener('click',function(){
+            pic_num++;
+            if(pic_num==60){
+                pic_num=1;
+                image.src=`toyota_image/360EXT_1_22_${pic_num}.png`;
+            }else{
+                image.src=`toyota_image/360EXT_1_22_${pic_num}.png`;
+            }
+        })
+        }
+        
+        
+        
+        
+    </script>
+    
 </body>
 </html>
