@@ -1,12 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .btn{
+            padding-top: 30px;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <button id="start">開始</button>
+    <p>請輸入四個不重複的數字:</p>
+
+    <input type="text" value="3456">
+    <span></span>
+        
+    <button id="enter">確定</button>
+
+    <script>
+        //宣告
+        let guess = [];
+        let answer = [];
+        //DOM
+        const input_value = document.querySelector("input");
+        const enter = document.querySelector("#enter");
+        const start = document.querySelector("#start");
+            
+        
+        //function
+        function ran_number(){
+            let str=' ';
+            let arr=[];
+            for(i=0;i<4;i++){
+                str = Math.round(Math.random()*9);
+                for(j=0;j<arr.length;j++){
+                    if(arr[j]==str){
+                        arr.splice(j,1);
+                        i--;
+                    }
+                }
+                arr.push(str);
+            }
+        }
+        function check(){debugger
+            guess = input_value.value.split(' ')
+            
+            let num_correct = answer.filter(x => guess.includes(x))
+            let a = num_correct.filter(x => guess.indexOf(x)==answer.indexof(x)).length;
+            let b = num_correct.length - a;
+            console.log(`${a}A${b}B`); 
+
+        }
+        //window.onload
+        start.addEventListener('click',function(){
+            // answer = ran_number();
+            answer = ['1','2','3','4'];
+        })
+        
+        enter.addEventListener('click',function(){
+            check();
+        })
+
+
+    </script>
+
 </body>
+
 </html>
