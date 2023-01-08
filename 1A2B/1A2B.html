@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .btn{
+        .btn {
             padding-top: 30px;
         }
     </style>
@@ -17,54 +17,89 @@
     <button id="start">開始</button>
     <p>請輸入四個不重複的數字:</p>
 
-    <input type="text" value="3456">
-    <span></span>
+    <input type="text" value="3456"> <button id="enter">確定</button>
+    
+    <div class="container">
         
-    <button id="enter">確定</button>
+    </div>
+    
+
+    
 
     <script>
         //宣告
         let guess = [];
         let answer = [];
+        let AB;
         //DOM
         const input_value = document.querySelector("input");
         const enter = document.querySelector("#enter");
         const start = document.querySelector("#start");
-            
-        
+        const printResult = document.querySelector(".container");
+
+
         //function
-        function ran_number(){
-            let str=' ';
-            let arr=[];
-            for(i=0;i<4;i++){
-                str = Math.round(Math.random()*9);
-                for(j=0;j<arr.length;j++){
-                    if(arr[j]==str){
-                        arr.splice(j,1);
+        function ran_number() {
+            let str = ' ';
+            let arr = [];
+            for (i = 0; i < 4; i++) {
+                str = Math.round(Math.random() * 9);
+                for (j = 0; j < arr.length; j++) {
+                    if (arr[j] == str) {
+                        arr.splice(j, 1);
                         i--;
                     }
                 }
                 arr.push(str);
             }
+            return arr;
         }
-        function check(){debugger
-            guess = input_value.value.split(' ')
+        function check() {
             
-            let num_correct = answer.filter(x => guess.includes(x))
-            let a = num_correct.filter(x => guess.indexOf(x)==answer.indexof(x)).length;
-            let b = num_correct.length - a;
-            console.log(`${a}A${b}B`); 
+            guess = input_value.value.split('')
+
+            let guessNum=guess.map(function(guessString){
+                return parseInt(guessString,10)
+            })
+    
+            console.log(guessNum)
+            let num_correct = answer.filter(x => guessNum.includes(x))
+            
+            console.log(num_correct)
+            let aLength = num_correct.filter(x => guessNum.indexOf(x) == answer.indexOf(x)).length;
+            let bLength = num_correct.length - aLength;
+            AB = `${aLength}A${bLength}B`;
+            printAB();
+            if (aLength == 4){
+                alert('答對了!!!!!');
+            }
 
         }
+        function printAB(){
+            console.log(AB);
+            let itemAB = document.createElement('p');
+            itemAB.innerText = AB;
+            printResult.appendChild(itemAB);
+            
+            console.log(printResult);
+        }
         //window.onload
-        start.addEventListener('click',function(){
-            // answer = ran_number();
-            answer = ['1','2','3','4'];
-        })
+        window.onload = function(){
+            start.addEventListener('click', function () {
+                answer = ran_number();
+                console.log(answer)
+            })
         
-        enter.addEventListener('click',function(){
-            check();
-        })
+            enter.addEventListener('click', function () {
+                check();
+                
+            })
+            
+        }
+
+
+
+
 
 
     </script>
