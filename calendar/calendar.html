@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
+
 <body>
     <!-- 表格 -->
     <h1 class="year&month">0000年-00月</h1>
@@ -29,11 +30,10 @@
         <button class="previousMonth">上一個月</button>
         <button class="nextMonth">下一個月</button>
     </table>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous">
-    </script>
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+        </script>
 
     <script>
         //宣告
@@ -45,46 +45,57 @@
         const preMonth = document.querySelector(".previousMonth");
         const nextMonth = document.querySelector(".nextMonth");
         const dateTable = document.querySelector("tbody");
-        const yearMonth= document.querySelector("h1");
+        const yearMonth = document.querySelector("h1");
         //function
-        function renderDay(){
+        function renderDay() {
             dateTable.innerHTML = '';
-            yearMonth.innerText = `${year}年 - ${month+1}月`;
+            yearMonth.innerText = `${year}年 - ${month + 1}月`;
             //這個月第一天是禮拜幾
             let firstDay = new Date(year, month, 1).getDay();
             //這個月有幾天
-            let days = new Date(year, month+1, 0).getDate();
-            //
-            let rows = Math.ceil(( days + firstDay ) / 7);
+            let days = new Date(year, month + 1, 0).getDate();
+            //這個月有幾周
+            let rows = Math.ceil((days + firstDay) / 7);
             let day = 1;
-            for(let row = 0; row < rows; row++){
+            // let preMonthNum;
+            let nextMonthDay = 1;//替換原來的B
+            for (let row = 0; row < rows; row++) {
                 let tr = document.createElement('tr');
-                for(let col = 0; col < 7; col++){
+                for (let col = 0; col < 7; col++) {
                     let td = document.createElement('td');
-                    if( row==0 && col < firstDay){
-                        td.innerText='A'
+                    //上個月
+                    if (row == 0 && col < firstDay) {
+                        // preMonthNum = (days - firstDay) + 1;
+                        // td.innerText = preMonthNum;
+                        // preMonthNum++;
+                        td.innerText = 'A'
                     }
-                    else{
-                        if(day <= days){
+                    else {
+                        //這個月
+                        if (day <= days) {
                             td.innerText = day;
                         }
-                        else{
-                            td.innerText = 'B'
+                        else {
+                            //下個月
+                            td.innerText = nextMonthDay;
+                            nextMonthDay++;
                         }
                         day++;
+
                     }
                     tr.appendChild(td);
-                    
+
                 }
                 dateTable.appendChild(tr);
             }
-            
 
-        }
 
-        function previousMonth(){
+        } 
+
+
+        function previousMonth() {
             month--
-            if(month == -1){
+            if (month == -1) {
                 year--;
                 month = 11;
             }
@@ -92,9 +103,9 @@
 
         }
 
-        function next(){
+        function next() {
             month++
-            if(month == 12){
+            if (month == 12) {
                 year++;
                 month = 0;
             }
@@ -102,15 +113,16 @@
 
         }
 
-        window.onload = function(){
+        window.onload = function () {
             renderDay();
-            preMonth.addEventListener('click',function(){
+            preMonth.addEventListener('click', function () {
                 previousMonth();
             })
-            nextMonth.addEventListener('click',function(){
+            nextMonth.addEventListener('click', function () {
                 next();
             })
         }
     </script>
 </body>
+
 </html>
