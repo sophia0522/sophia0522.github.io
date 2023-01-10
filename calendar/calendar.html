@@ -14,7 +14,7 @@
     <h1 class="year&month">0000年-00月</h1>
     <button class="previousMonth">上一個月</button>
     <button class="nextMonth">下一個月</button>
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>日</th>
@@ -27,9 +27,50 @@
             </tr>
         </thead>
         <tbody>
-
+            <!-- 動態渲染日期 -->
         </tbody>
     </table>
+
+
+    <!--  新增行程(Modal) -->
+    <div class="addModal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">新增</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input id="addDate" type="text">
+                    <input id="addEvent" type="text">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">新增</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--  編輯行程(Modal) -->
+    <div class="editModal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">編輯</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input id="editDate" type="text">
+                    <input id="editEvent" type="text">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-delete">刪除</button>
+                    <button type="button" class="btn btn-primary">修改</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
@@ -47,6 +88,15 @@
         const nextMonth = document.querySelector(".nextMonth");
         const dateTable = document.querySelector("tbody");
         const yearMonth = document.querySelector("h1");
+
+        const addModal = document.querySelector("#addModal");
+        const editModal = document.querySelector("#editModal");
+
+        const addDate = document.querySelector("#addDate");
+        const addEvent = document.querySelector("#addEvent");
+        const editDate = document.querySelector("#editDate");
+        const editEvent = document.querySelector("editEvent");
+        
         //function
         function renderDay() {
             dateTable.innerHTML = '';
@@ -70,7 +120,7 @@
                         firstDay = new Date(year, month, 1).getDay();
                         preMonthNum = (preMonthDays - firstDay) + 1;
                         td.innerText = preMonthNum;
-                        preMonthNum = preMonthNum+1
+                        preMonthNum = preMonthNum + 1
                     }
 
                     else {
@@ -84,15 +134,11 @@
                             nextMonthDay++;
                         }
                         day++;
-
                     }
                     tr.appendChild(td);
-
                 }
                 dateTable.appendChild(tr);
             }
-
-
         }
         // function DaysOfPreMonth() {
         //     preMonthDays = new Date(year, month, 0).getDate();
@@ -107,7 +153,6 @@
                 month = 11;
             }
             renderDay();
-
         }
 
         function next() {
@@ -117,7 +162,14 @@
                 month = 0;
             }
             renderDay()
+        }
 
+        function addTodoThing(){
+
+        }
+
+        function editTodoThing(){
+            
         }
 
         window.onload = function () {
