@@ -39,28 +39,28 @@
 <body>
     <div class="container">
         <div id="typeBtn" class="row mb-3 d-flex justify-content-center">
-          <button id="iphone" type="button" class="product-btn btn btn-dark" onclick="">IPhone</button>
-          <button id="ipad" type="button" class="product-btn btn btn-dark" onclick="">IPad</button>
-          <button id="macpro" type="button" class="product-btn btn btn-dark" onclick="">MacPro</button>
+            <button id="iphone" type="button" class="product-btn btn btn-dark" onclick="">IPhone</button>
+            <button id="ipad" type="button" class="product-btn btn btn-dark" onclick="">IPad</button>
+            <button id="macpro" type="button" class="product-btn btn btn-dark" onclick="">MacPro</button>
         </div>
         <div class="row">
-          <div class="col-12 col-md-6">
-            <img id="productImg" src="" class="appleImg" alt="">
-          </div>
-          <div class="col-12 col-md-6">
-            <div id="color" class="row" style="box-sizing: border-box;">
-              
+            <div class="col-12 col-md-6">
+                <img id="productImg" src="" class="appleImg" alt="">
             </div>
-            <div id="type" class="row">
-              
+            <div class="col-12 col-md-6">
+                <div id="color" class="row" style="box-sizing: border-box;">
+
+                </div>
+                <div id="type" class="row">
+
+                </div>
+                <div id="price" class="row">
+
+                </div>
             </div>
-            <div id="price" class="row">
-    
-            </div>
-          </div>
         </div>
-      </div>
-    
+    </div>
+
 
 
     <script>
@@ -128,34 +128,52 @@
         const iphone = document.querySelector('#iphone')
         const ipad = document.querySelector('#ipad')
         const macpro = document.querySelector('#macpro')
-
+        const pic = document.querySelector('#productImg')
+        const colorArea = document.querySelector('#color')
+        const typeArea = document.querySelector('#type')
         //function
+        function clear() {
+            color.innerHTML = ''
+            typeArea.innerHTML = ''
 
+        }
         //window.onload
-        window.onload = function(){
-            iphone.addEventListener('click',function(){
-                // console.log(Product.IPhone.OutWard[0].color)
+        window.onload = function () {
+            iphone.addEventListener('click', function () {
+                 clear()
+                pic.src ='Apple-image/iphone11-select-2019-family.png'
+                pic.setAttribute('style','width:100%')
+                 // console.log(Product.IPhone.OutWard[0].color)
                 let outWard = Product.IPhone.OutWard
-                
-                outWard.forEach( function(item) {
+
+                outWard.forEach(function (item) {
                     console.log(item.color)
                 });
 
-                for(let item of outWard){
+                for (let item of outWard) {
                     let colorBtn = document.createElement('button')
-                    colorBtn.addEventListener('click',function(){
-                        
+                    colorBtn.innerText = '紅色'
+                    colorArea.appendChild(colorBtn)
+                    colorBtn.addEventListener('click', function () {
+                        pic.src = 'Apple-image/iphone-red.png';
+                        consle.log(pic)
                     })
                 }
             })
-            ipad.addEventListener('click',function(){
-
+            ipad.addEventListener('click', function () {
+                clear()
+                pic.src ='Apple-image/ipad-hero-unselected-201909_GEO_TW.png'
+                pic.setAttribute('style','width:100%')
+                //console.log(Product.ipad.Outward[0].color)
             })
-            macpro.addEventListener('click',function(){
-
+            macpro.addEventListener('click', function () {
+                clear()
+                pic.src ='Apple-image/mbp13touch-space-gallery1-201907.png'
+                pic.setAttribute('style','width:100%')
+                //console.log(Product.ipad.Outward[0].color)
             })
-            // console.log(Product)
             
+
         }
 
     </script>
@@ -164,14 +182,14 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"></script>
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"></script>
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"></script>
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
