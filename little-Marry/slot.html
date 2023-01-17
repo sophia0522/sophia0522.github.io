@@ -434,12 +434,14 @@
         //function
         function renderBrick() {
             bricks = document.querySelectorAll('[box-id]')
+            debugger
             bricks = Array.from(bricks).sort((a, b) => {
                 return a.getAttributeNode('box-id').value - b.getAttributeNode('box-id').value
             })
             console.log(bricks);
             bricks.forEach(x => {
                 let id = x.getAttributeNode('box-id').value;
+                debugger
                 let data = brickData.find(x => x.id == id)
 
                 let icon = document.createElement("i")
