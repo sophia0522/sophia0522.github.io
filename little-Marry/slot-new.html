@@ -180,9 +180,10 @@
         
         function renderDrink(){
             drinks.forEach((x) =>{
-                debugger
+                
                 let id = x.getAttributeNode('box-id').value;
-                let data = drinkData.find(x => x.id == id );
+                debugger
+                let data = drinkData.filter(x => x.id == id );
                 let img = document.createElement('pic');
                 pic.classList.add('w-100');
                 pic.classList.add('h-100');
@@ -194,7 +195,7 @@
         }
         //window.onload
         window.onload = function(){
-            renderDrink()
+            renderDrink();
         }
     </script>
 </body>
