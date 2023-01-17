@@ -180,15 +180,14 @@
         
         function renderDrink(){
             drinks = document.querySelectorAll('[box-id]');
+            debugger
             drinks.forEach((x) =>{
-                debugger
                 let id = x.getAttributeNode('box-id').value;
-                
-                // let data = drinkData.filter(x => x.id == id );
-                // let img = document.createElement('img');
-                // img.classList.add('w-100');
-                // img.classList.add('h-100');
-                // x.append(img);
+                let data = drinkData.filter(x => x.id == id )[0];
+                let img = document.createElement('img');
+                img.classList.add('w-100');
+                img.classList.add('h-100');
+                x.append(img);
                 
 
             })
