@@ -439,7 +439,7 @@
             })
             console.log(bricks);
             bricks.forEach(x => {
-                let id = x.getAttributeNode('box-id').value
+                let id = x.getAttributeNode('box-id').value;
                 let data = brickData.find(x => x.id == id)
 
                 let icon = document.createElement("i")

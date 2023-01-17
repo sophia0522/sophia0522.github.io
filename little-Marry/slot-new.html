@@ -59,115 +59,115 @@
         const drinkData = [
             {
                 id:1,
-                img:'drink-image/1.jpg',
+                img:"drink-image/1.jpg",
                 target: function () {
                     return '清心福全'
-                },
+                }
             },
             {
                 id:2,
-                img:'drink-image/2.jpg',
+                img:"drink-image/2.png",
                 target: function () {
                     return '50嵐'
-                },
+                }
             },
             {
                 id:3,
-                img:'drink-image/3.jpg',
+                img:"drink-image/3.jpg",
                 target: function () {
                     return 'ComeBuy'
-                },
+                }
             },
             {
                 id:4,
-                img:'drink-image/4.jpg',
+                img:"drink-image/4.png",
                 target: function () {
                     return '珍煮丹'
-                },
+                }
             },
             {
                 id:5,
-                img:'drink-image/5.jpg',
+                img:"drink-image/5..png",
                 target: function () {
                     return '再睡5分鐘'
-                },
+                }
             },
             {
                 id:6,
-                img:'drink-image/6.jpg',
+                img:"drink-image/6.jpg",
                 target: function () {
                     return '迷克夏'
-                },
+                }
             },
             {
                 id:7,
-                img:'drink-image/7.jpg',
+                img:"drink-image/7.png",
                 target: function () {
                     return '茶曉伊'
-                },
+                }
             },
             {
                 id:8,
-                img:'drink-image/8.jpg',
+                img:"drink-image/8.jpg",
                 target: function () {
                     return '約翰紅茶'
-                },
+                }
             },
             {
                 id:9,
-                img:'drink-image/9.jpg',
+                img:"drink-image/9.png",
                 target: function () {
                     return '可不可'
-                },
+                }
             },
             {
                 id:10,
-                img:'drink-image/10.jpg',
+                img:"drink-image/10.jpg",
                 target: function () {
                     return '龜記'
-                },
+                }
             },
             {
                 id:11,
-                img:'drink-image/11.jpg',
+                img:"drink-image/11.png",
                 target: function () {
                     return 'CoCo'
-                },
+                }
             },
             {
                 id:12,
-                img:'drink-image/12.jpg',
+                img:"drink-image/12.jpg",
                 target: function () {
                     return '麻古茶坊'
-                },
+                }
             },
             {
                 id:13,
-                img:'drink-image/13.jpg',
+                img:"drink-image/13.jpg",
                 target: function () {
                     return '橘子工坊'
-                },
+                }
             },
             {
                 id:14,
-                img:'drink-image/14.jpg',
+                img:"drink-image/14.png",
                 target: function () {
                     return '一芳'
-                },
+                }
             },
             {
                 id:15,
-                img:'drink-image/15.jpg',
+                img:"drink-image/15.png",
                 target: function () {
                     return '貢茶'
-                },
+                }
             },
             {
                 id:16,
-                img:'drink-image/16.jpg',
+                img:"drink-image/16.png",
                 target: function () {
                     return '春水堂'
-                },
+                }
             },
 
         ]
@@ -175,20 +175,19 @@
         //DOM
         const startBtn = document.querySelector('button');
         const msg = document.querySelector('#msg');
-        let drinks = document.querySelectorAll('[box-id]');
+        let drinks;
         //function
         
         function renderDrink(){
+            drinks = document.querySelectorAll('[box-id]');
             drinks.forEach((x) =>{
                 
                 let id = x.getAttributeNode('box-id').value;
-                debugger
                 let data = drinkData.filter(x => x.id == id );
-                let img = document.createElement('pic');
-                pic.classList.add('w-100');
-                pic.classList.add('h-100');
-                pic.src = data.img;
-                x.append(pic);
+                let img = document.createElement('img');
+                img.classList.add('w-100');
+                img.classList.add('h-100');
+                x.append(img);
                 
 
             })
