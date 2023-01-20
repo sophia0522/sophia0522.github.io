@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .title {
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin: 20px;
+            padding-right: 300px;
+        }
+
+        button {
+            margin: 10px;
+            width: 70px;
+            height: 30px;
+            font-size: medium;
+            color: white;
+            background-color: rgb(26, 31, 95);
+            border-radius: 20px;
+            border-style: none;
+        }
+    </style>
+</head>
+
+<body>
+   <div class="container">
+    <div class="title">
+        <h1>Apple</h1>
+        <div class="type">
+            <button id="smartphone" type="button" class="" onclick="">IPhone</button>
+            <button id="flat" type="button" class="" onclick="">IPad</button>
+            <button id="computer" type="button" class="" onclick="">MacPro</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <img id="productImg" src="" class="appleImg" alt="">
+        </div>
+        <div class="col-6">
+            <div id="color" class="row col-6">
+
+            </div>
+            <div id="spec" class="row col-6">
+
+            </div>
+            <div id="price" class="row col-6">
+
+            </div>
+        </div>
+    </div>
+   </div>
+   
+    
+
+    <script>
+        var Product = {
+            IPhone: {
+                Detail: {
+                    productName: 'iPhone 11',
+                    baseImgUrl: 'Apple-image/iphone11-select-2019-family.png'
+                },
+                OutWard: [
+                    { color: '紅色', colorValue: '#ff0000', imageUrl: 'Apple-image/iphone-red.png' },
+                    { color: '黃色', colorValue: '#ffff00', imageUrl: 'Apple-image/iphone-yellow.png' },
+                    { color: '黑色', colorValue: '#000000', imageUrl: 'Apple-image/iphone-black.png' },
+                ],
+                Spec: {
+                    Storge: [
+                        { size: '64GB', fit: 24900 },
+                        { size: '128GB', fit: 26900 },
+                        { size: '256GB', fit: 30400 },
+                    ]
+                }
+            },
+            IPad: {
+                Detail: {
+                    productName: 'iPad',
+                    baseImgUrl: 'Apple-image/ipad-hero-unselected-201909_GEO_TW.png'
+                },
+                OutWard: [
+                    { color: '太空灰色', colorValue: '#6e6969', imageUrl: 'Apple-image/ipad-space.png' },
+                    { color: '銀色', colorValue: '#b9aeae', imageUrl: 'Apple-image/ipad-silver.png' },
+                    { color: '金色', colorValue: '#ceb7a8', imageUrl: 'Apple-image/ipad-gold.png' },
+                ],
+                Spec: {
+                    Storge: [
+                        { size: '32GB', fit: 10900 },
+                        { size: '128GB', fit: 13900 },
+                    ]
+                }
+            },
+            MacPro: {
+                Detail: {
+                    productName: 'MacPro 13',
+                    baseImgUrl: 'Apple-image/mbp13touch-space-gallery1-201907.png'
+                },
+                OutWard: [
+                    { color: '太空灰色', colorValue: '#6e6969', imageUrl: 'Apple-image/mbp13touch-space.png' },
+                    { color: '銀色', colorValue: '#b9aeae', imageUrl: 'Apple-image/mbp13touch-silver.png' },
+                ],
+                Spec: {
+                    Storge: [
+                        { size: '256GB', fit: 51300 },
+                        { size: '512GB', fit: 57300 },
+                        { size: '1TB', fit: 63300 },
+                        { size: '2TB', fit: 75300 },
+                    ]
+                }
+            }
+        };
+
+        //宣告
+        //DOM
+        let iphone = document.querySelector('#smartphone');
+        let ipad = document.querySelector('#flat');
+        let macpro = document.querySelector('#computer');
+        let pic = document.querySelector('#productImg');
+        let colorArea = document.querySelector('#color');
+        let specArea = document.querySelector('#spec');
+        let priceArea = document.querySelector('#price');
+        //function
+        function clear() {
+            colorArea.innerHTML = '';
+            specArea.innerHTML = '';
+            priceArea.innerHTML = '';
+        }
+        function Iphone() {
+            clear();
+            pic.src = 'Apple-image/iphone11-select-2019-family.png';
+            pic.setAttribute('style', 'width:100%');
+        }
+        function Ipad() {
+            clear();
+            pic.src = 'Apple-image/ipad-hero-unselected-201909_GEO_TW.png';
+            pic.setAttribute('style', 'width:100%');
+        }
+        function Macpro() {
+            clear();
+            pic.src = 'Apple-image/mbp13touch-space-gallery1-201907.png';
+            pic.setAttribute('style', 'width:100%');
+        }
+        //window.onload
+        window.onload = function () {
+            iphone.addEventListener('click', function () {
+                Iphone();
+            })
+            ipad.addEventListener('click', function () {
+                Ipad();
+            })
+            macpro.addEventListener('click', function () {
+                Macpro();
+            })
+        }
+    </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

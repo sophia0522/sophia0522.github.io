@@ -38,23 +38,23 @@
 
 <body>
     <div class="container">
-        <div id="typeBtn" class="row mb-3 d-flex justify-content-center">
+        <div id="typeBtn" class="row d-flex justify-content-center">
             <button id="iphone" type="button" class="product-btn btn btn-dark" onclick="">IPhone</button>
             <button id="ipad" type="button" class="product-btn btn btn-dark" onclick="">IPad</button>
             <button id="macpro" type="button" class="product-btn btn btn-dark" onclick="">MacPro</button>
         </div>
         <div class="row">
-            <div class="col-12 col-md-6">
+            <div class="col-6">
                 <img id="productImg" src="" class="appleImg" alt="">
             </div>
-            <div class="col-12 col-md-6">
-                <div id="color" class="row" style="box-sizing: border-box;">
+            <div class="col-6">
+                <div id="colorArea" class="row col-6">
+                    
+                </div>
+                <div id="specArea" class="row col-6">
 
                 </div>
-                <div id="type" class="row">
-
-                </div>
-                <div id="price" class="row">
+                <div id="priceArea" class="row col-6">
 
                 </div>
             </div>
@@ -129,26 +129,26 @@
         const ipad = document.querySelector('#ipad')
         const macpro = document.querySelector('#macpro')
         const pic = document.querySelector('#productImg')
-        const colorArea = document.querySelector('#color')
-        const typeArea = document.querySelector('#type')
+        const colorArea = document.querySelector('#colorArea')
+        const specArea = document.querySelector('#specArea')
         //function
         function clear() {
-            color.innerHTML = ''
-            typeArea.innerHTML = ''
-
+            colorArea.innerHTML = ''
+            specArea.innerHTML = ''
+            priceArea.innerHTML = ''
         }
         //window.onload
         window.onload = function () {
             iphone.addEventListener('click', function () {
-                 clear()
+                clear()
                 pic.src ='Apple-image/iphone11-select-2019-family.png'
                 pic.setAttribute('style','width:100%')
                  // console.log(Product.IPhone.OutWard[0].color)
                 let outWard = Product.IPhone.OutWard
 
-                outWard.forEach(function (item) {
-                    console.log(item.color)
-                });
+                // outWard.forEach(function (item) {
+                //     console.log(item.color)
+                // });
 
                 for (let item of outWard) {
                     let colorBtn = document.createElement('button')
@@ -164,19 +164,18 @@
                 clear()
                 pic.src ='Apple-image/ipad-hero-unselected-201909_GEO_TW.png'
                 pic.setAttribute('style','width:100%')
-                //console.log(Product.ipad.Outward[0].color)
+                
             })
             macpro.addEventListener('click', function () {
                 clear()
                 pic.src ='Apple-image/mbp13touch-space-gallery1-201907.png'
                 pic.setAttribute('style','width:100%')
-                //console.log(Product.ipad.Outward[0].color)
+                
             })
             
 
         }
 
-    </script>
     </script>
 
     <!-- Optional JavaScript -->
