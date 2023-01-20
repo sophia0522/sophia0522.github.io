@@ -27,7 +27,9 @@
             padding-right: 300px;
         }
 
-        button {
+        #smartphone,
+        #flat,
+        #computer {
             margin: 10px;
             width: 70px;
             height: 30px;
@@ -41,34 +43,34 @@
 </head>
 
 <body>
-   <div class="container">
-    <div class="title">
-        <h1>Apple</h1>
-        <div class="type">
-            <button id="smartphone" type="button" class="" onclick="">IPhone</button>
-            <button id="flat" type="button" class="" onclick="">IPad</button>
-            <button id="computer" type="button" class="" onclick="">MacPro</button>
+    <div class="container">
+        <div class="title">
+            <h1>Apple</h1>
+            <div class="type">
+                <button id="smartphone" type="button" class="" onclick="">IPhone</button>
+                <button id="flat" type="button" class="" onclick="">IPad</button>
+                <button id="computer" type="button" class="" onclick="">MacPro</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <img id="productImg" src="" class="appleImg" alt="">
+            </div>
+            <div class="col-6">
+                <div id="color" class="row col-6">
+
+                </div>
+                <div id="spec" class="row col-6">
+
+                </div>
+                <div id="price" class="row col-6">
+                    <span id="pricetext"></span>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-6">
-            <img id="productImg" src="" class="appleImg" alt="">
-        </div>
-        <div class="col-6">
-            <div id="color" class="row col-6">
 
-            </div>
-            <div id="spec" class="row col-6">
 
-            </div>
-            <div id="price" class="row col-6">
-
-            </div>
-        </div>
-    </div>
-   </div>
-   
-    
 
     <script>
         var Product = {
@@ -136,6 +138,8 @@
         let colorArea = document.querySelector('#color');
         let specArea = document.querySelector('#spec');
         let priceArea = document.querySelector('#price');
+        let pricetext = document.querySelector('#pricetext');
+
         //function
         function clear() {
             colorArea.innerHTML = '';
@@ -145,17 +149,195 @@
         function Iphone() {
             clear();
             pic.src = 'Apple-image/iphone11-select-2019-family.png';
-            pic.setAttribute('style', 'width:100%');
+            Color();
+
+            for (let item of Product['IPhone'].OutWard) {
+                let colorDiv = document.createElement('div');
+                let colorBtnArea = document.createElement('div');
+                let colorBtn = document.createElement('button');
+                colorDiv.classList.add('col-6');
+                colorDiv.classList.add('align-items-center');
+                colorDiv.classList.add('justify-content-center');
+                colorBtn.classList.add('align-items-center');
+                colorBtn.classList.add('w-100');
+                if (item.color == '紅色') {
+                    colorBtn.innerText = '紅色'
+                    colorBtn.setAttribute('style', 'background-color:red')
+                    // pic.setAttribute('src', 'Apple-image/iphone-red.png');
+                }else if (item.color == '黃色') {
+                    colorBtn.innerText = '黃色'
+                    colorBtn.setAttribute('style', 'background-color:yellow')
+                    //pic.setAttribute('src', 'Apple-image/iphone-yellow.png');
+                }
+                else if (item.color == '黑色') {
+                    colorBtn.innerText = '黑色'
+                    colorBtn.setAttribute('style', 'background-color:black')
+                    //pic.setAttribute('src', 'Apple-image/iphone-black.png');
+                }
+                colorBtnArea.appendChild(colorBtn);
+                colorDiv.appendChild(colorBtnArea);
+                colorArea.appendChild(colorBtnArea);
+
+            }
+            Spec();
+            for (let item of Product['IPhone'].Spec.Storge) {
+                let specDiv = document.createElement('div');
+                let specBtn = document.createElement('button');
+                let specBtnArea = document.createElement('div');
+                specDiv.classList.add('col-6');
+                specDiv.classList.add('align-items-center');
+                specDiv.classList.add('justify-content-center');
+                specBtn.classList.add('align-items-center');
+                specBtn.classList.add('w-100');
+                if (item.size == '64GB') {
+                    specBtn.innerText = '64GB , $24900'
+                    
+                }else if (item.size == '128GB') {
+                    specBtn.innerText = '128GB , $26900'
+                }
+                else if (item.size == '256GB') {
+                    specBtn.innerText = '256GB , $30400'
+                    
+                }
+                specBtnArea.appendChild(specBtn);
+                specDiv.appendChild(specBtnArea);
+                specArea.appendChild(specDiv);
+
+            }
         }
         function Ipad() {
             clear();
             pic.src = 'Apple-image/ipad-hero-unselected-201909_GEO_TW.png';
-            pic.setAttribute('style', 'width:100%');
+            pic.setAttribute('style', 'width:70%');
+            Color();
+            for (let item of Product['IPad'].OutWard) {
+                let colorDiv = document.createElement('div');
+                let colorBtnArea = document.createElement('div');
+                let colorBtn = document.createElement('button');
+                colorDiv.classList.add('col-6');
+                colorDiv.classList.add('align-items-center');
+                colorDiv.classList.add('justify-content-center');
+                colorBtn.classList.add('align-items-center');
+                colorBtn.classList.add('w-100');
+                
+                if (item.color == '太空灰色') {
+                    colorBtn.innerText = '太空灰色'
+                    colorBtn.setAttribute('style', 'background-color:grey')
+                    // pic.setAttribute('src', 'Apple-image/iphone-red.png');
+                }else if (item.color == '銀色') {
+                    colorBtn.innerText = '銀色'
+                    colorBtn.setAttribute('style', 'background-color:sliver')
+                    //pic.setAttribute('src', 'Apple-image/iphone-yellow.png');
+                }
+                else if (item.color == '金色') {
+                    colorBtn.innerText = '金色'
+                    colorBtn.setAttribute('style', 'background-color:gold')
+                    //pic.setAttribute('src', 'Apple-image/iphone-black.png');
+                }
+                colorBtnArea.appendChild(colorBtn);
+                colorArea.appendChild(colorBtnArea);
+
+            }
+            Spec();
+            for (let item of Product['IPad'].Spec.Storge) {
+                let specDiv = document.createElement('div');
+                let specBtn = document.createElement('button');
+                let specBtnArea = document.createElement('div');
+                specDiv.classList.add('col-6');
+                specDiv.classList.add('align-items-center');
+                specDiv.classList.add('justify-content-center');
+                specBtn.classList.add('align-items-center');
+                specBtn.classList.add('w-100');
+                if (item.size == '32GB') {
+                    specBtn.innerText = '32GB , $10900'
+                    
+                }else if (item.size == '128GB') {
+                    specBtn.innerText = '128GB , $13900'
+                }
+                specBtnArea.appendChild(specBtn);
+                specDiv.appendChild(specBtnArea);
+                specArea.appendChild(specDiv);
+
+            }
         }
         function Macpro() {
             clear();
             pic.src = 'Apple-image/mbp13touch-space-gallery1-201907.png';
             pic.setAttribute('style', 'width:100%');
+            Color();
+            for (let item of Product['MacPro'].OutWard) {
+                let colorDiv = document.createElement('div');
+                let colorBtnArea = document.createElement('div');
+                let colorBtn = document.createElement('button');
+                colorDiv.classList.add('col-6');
+                colorDiv.classList.add('align-items-center');
+                colorBtnArea.classList.add('justify-content-center');
+                colorBtn.classList.add('align-items-center');
+                colorBtn.classList.add('w-100');
+                
+                if (item.color == '太空灰色') {
+                    colorBtn.innerText = '太空灰色'
+                    colorBtn.setAttribute('style', 'background-color:grey')
+                    // pic.setAttribute('src', 'Apple-image/iphone-red.png');
+                }else if (item.color == '銀色') {
+                    colorBtn.innerText = '銀色'
+                    colorBtn.setAttribute('style', 'background-color:sliver')
+                    //pic.setAttribute('src', 'Apple-image/iphone-yellow.png');
+                }
+                colorBtnArea.appendChild(colorBtn);
+                colorArea.appendChild(colorBtnArea);
+
+            }
+            Spec();
+            for (let item of Product['MacPro'].Spec.Storge) {
+                let specDiv = document.createElement('div');
+                let specBtn = document.createElement('button');
+                let specBtnArea = document.createElement('div');
+                specDiv.classList.add('col-6');
+                specDiv.classList.add('align-items-center');
+                specDiv.classList.add('justify-content-center');
+                specBtn.classList.add('align-items-center');
+                specBtn.classList.add('w-100');
+                if (item.size == '256GB') {
+                    specBtn.innerText = '256GB , $51300'
+                    
+                }else if (item.size == '512GB') {
+                    specBtn.innerText = '512GB , $57300'
+                }
+                else if (item.size == '1TB') {
+                    specBtn.innerText = '1TB , $63300'
+                    
+                }else if (item.size == '2TB') {
+                    specBtn.innerText = '2TB , $75300'
+                    
+                }
+                specBtnArea.appendChild(specBtn);
+                specDiv.appendChild(specBtnArea);
+                specArea.appendChild(specDiv);
+
+            } 
+
+        }
+        function Color() {
+            pic.setAttribute('style', 'width:100%');
+            let colorTitle = document.createElement('div')
+            let colorTitleh3 = document.createElement('h3');
+            colorTitle.innerText = '顏色';
+            colorTitle.classList.add('w-100');
+            colorTitle.classList.add('d-flex');
+            colorTitle.classList.add('justify-content-center');
+            colorTitle.appendChild(colorTitleh3);
+            colorArea.appendChild(colorTitle);
+        }
+        function Spec() {
+            let specTitle = document.createElement('div')
+            let specTitleh3 = document.createElement('h3');
+            specTitle.innerText = '規格';
+            specTitle.classList.add('w-100');
+            specTitle.classList.add('d-flex');
+            specTitle.classList.add('justify-content-center');
+            specTitle.appendChild(specTitleh3);
+            specArea.appendChild(specTitle);
         }
         //window.onload
         window.onload = function () {
@@ -171,6 +353,14 @@
         }
     </script>
 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
