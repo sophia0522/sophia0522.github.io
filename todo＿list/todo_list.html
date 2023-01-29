@@ -7,29 +7,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        
+        * {
+          margin: 0px;
+          padding: 0px;  
+        }
+        .container{
+            margin: auto;
+            padding: 50px;
+        }
+
         h1{
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .to-do{
+
+        .to-do {
             display: flex;
             justify-content: center;
             align-items: center;
+            margin: 30px;
         }
-        .new{
-            margin: 10px;
+
+        .itemArea {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
         }
+
     </style>
 </head>
 
 <body>
-    <h1>代辦清單</h1>
-    <div class="to-do">
-        <input type="text">
-        <button class="new">新增</button>
+    <div class="container">
+        <h1>代辦清單</h1>
+        <div class="to-do">
+            <input id="inputValue" type="text" style="width: 200px;height: 20px;">
+            <input id="add" type="button" value="新增" style="width: 40px;height: 23px;">
+        </div>
+        <div class="itemArea">
+
+        </div>
     </div>
-    
+
+
+    <script>
+        //宣告
+
+        //dom
+        const add = document.querySelector('#add');
+        const itemArea = document.querySelector('.itemArea')
+        const inputText = document.querySelector('#inputValue')
+
+        //function
+        function addItem(){
+            //產生checkbox
+            let item = document.createElement('div')
+            let checkboxArea = document.createElement('div')
+            let check = document.createElement('input')
+            item.setAttribute('style','display:flex')
+            check.setAttribute('type','checkbox')
+            checkboxArea.appendChild(check)
+            item.appendChild(checkboxArea)
+            itemArea.appendChild(item)
+            //產生input文字
+            
+            
+
+            //產生"修改","刪除"按鈕
+            let btnArea = document.createElement('div')
+            let change = document.createElement('button')
+            change.innerText = '修改'
+            let del = document.createElement('button')
+            del.innerText = '刪除'
+            btnArea.appendChild(change)
+            btnArea.appendChild(del)
+            item.appendChild(btnArea)
+        }
+
+        //window.onload
+        window.onload = function(){
+            
+            add.addEventListener('click',function(){
+               addItem() 
+            })
+            
+            
+        }
+    </script>
 
 </body>
 
