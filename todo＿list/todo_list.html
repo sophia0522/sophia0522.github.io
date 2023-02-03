@@ -68,16 +68,21 @@
             let item = document.createElement('div')
             let checkboxArea = document.createElement('div')
             let check = document.createElement('input')
-            item.setAttribute('style','display:flex')
+           
             check.setAttribute('type','checkbox')
             checkboxArea.appendChild(check)
             item.appendChild(checkboxArea)
-            itemArea.appendChild(item)
-            //產生input文字
-            let input = document.createElement('input');
-            input.value = inputText.value 
             
-
+            //產生input文字
+            let inputArea = document.createElement('div');
+            let input = document.createElement('input');
+            input.setAttribute('disabled','');
+            input.value= inputText.value ;
+            console.log(input)
+            inputArea.appendChild(input)
+            item.appendChild(inputArea)
+            itemArea.appendChild(item)
+            item.setAttribute('style','display:flex')
             //產生"修改","刪除"按鈕
             let btnArea = document.createElement('div')
             let change = document.createElement('button')
@@ -87,6 +92,11 @@
             btnArea.appendChild(change)
             btnArea.appendChild(del)
             item.appendChild(btnArea)
+            
+        }
+
+        function rewrite(){
+
         }
 
         //window.onload
