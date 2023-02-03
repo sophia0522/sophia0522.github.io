@@ -87,6 +87,8 @@
             let btnArea = document.createElement('div')
             let change = document.createElement('button')
             change.innerText = '修改'
+            debugger
+            change.setAttribute('onclick',changeEvent);
             let del = document.createElement('button')
             del.innerText = '刪除'
             btnArea.appendChild(change)
@@ -95,15 +97,15 @@
             
         }
 
-        function rewrite(){
-
+        function changeEvent(){
+            input.removeAttribute('disabled');
         }
 
         //window.onload
         window.onload = function(){
             
             add.addEventListener('click',function(){
-               addItem() 
+               addItem(); 
             })
             
             
