@@ -83,7 +83,7 @@
             //產生"修改","刪除"按鈕
             let change = document.createElement('button');
             change.innerText = '修改';
-            //change.setAttribute('onclick',changeEvent());
+            change.setAttribute('onclick',changeEvent());
             change.setAttribute('style','margin-left:10px');
             let del = document.createElement('button');
             del.innerText = '刪除';
@@ -92,11 +92,14 @@
             item.appendChild(change);
             item.appendChild(del);
             itemArea.appendChild(item);
-        }
 
+            
+        }
+        
         function changeEvent(){
             input.removeAttribute('disabled');
         }
+        
 
         //window.onload
         window.onload = function(){
