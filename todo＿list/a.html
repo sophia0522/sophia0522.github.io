@@ -63,43 +63,58 @@
         const inputText = document.querySelector('#inputValue')
 
         //function
-        function addItem(){
-            //產生checkbox
-            let item = document.createElement('div');
-            let check = document.createElement('input');
-            check.setAttribute('type','checkbox');
-            check.setAttribute('style','margin:5px');
-            item.appendChild(check);
-            
-            //產生input文字
-            let input = document.createElement('input');
-            input.setAttribute('disabled','');
-            input.setAttribute('style','margin:5px');
-            input.value= inputText.value ;
-            item.appendChild(input);
-            item.setAttribute('style','display:flex');
-            item.setAttribute('style','margin:10px');
+        function renderData(){
+            let data = JSON.parse(localStorage.getItem('list'));
+            data.forEach((listName,index) =>{
+                //checkbox
+                const item = document.createElement('div');
+                item.setAttribute('id','item');
+                const check = document.createElement('input');
+                check.setAttribute('type','checkbox');
+                check.setAttribute('style','margin:5px');
+                check.setAttribute();
+                item.appendChild(check);
+                //input
+                const input = document.createElement('input');
+                input.setAttribute('disabled','');
+                input.setAttribute('style','margin:5px');
+                //input.value=  ;
+                item.appendChild(input);
+                item.setAttribute('style','display:flex');
+                item.setAttribute('style','margin:10px');
            
-            //產生"修改","刪除"按鈕
-            let change = document.createElement('button');
-            change.innerText = '修改';
-            change.setAttribute('onclick',changeEvent());
-            change.setAttribute('style','margin-left:10px');
-            let del = document.createElement('button');
-            del.innerText = '刪除';
-            //del.setAttribute('onclick',delEvent());
-            del.setAttribute('style','margin:5px');
-            item.appendChild(change);
-            item.appendChild(del);
-            itemArea.appendChild(item);
+                //"修改","刪除"
+                const change = document.createElement('button');
+                change.innerText = '修改';
+                change.setAttribute('style','margin-left:10px');
+                const del = document.createElement('button');
+                del.innerText = '刪除';
+                del.setAttribute('style','margin:5px');
+                item.appendChild(change);
+                item.appendChild(del);
+                itemArea.appendChild(item);
+                change.addEventListener('click',function(){
+                    changeEvent();
+                })
+                del.addEventListener('click',function(){
+                    delEvent();
+                })
+            })
+        }
+        
+        
+        
+        
+        function addItem(){
 
             
         }
         
-        function changeEvent(){
+        function Revise(){
             input.removeAttribute('disabled');
         }
-        
+        function delEvent(){
+        }
 
         //window.onload
         window.onload = function(){
