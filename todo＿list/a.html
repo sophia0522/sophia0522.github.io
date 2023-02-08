@@ -59,8 +59,8 @@
 
         //dom
         const add = document.querySelector('#add');
-        const itemArea = document.querySelector('.itemArea')
-        const inputText = document.querySelector('#inputValue')
+        const itemArea = document.querySelector('.itemArea');
+        const inputText = document.querySelector('#inputValue');
 
         //function
         function renderData(){
@@ -68,17 +68,23 @@
             data.forEach((listName,index) =>{
                 //checkbox
                 const item = document.createElement('div');
-                item.setAttribute('id','item');
+                item.setAttribute('class','item');
                 const check = document.createElement('input');
                 check.setAttribute('type','checkbox');
+                check.setAttribute('class','checkList');
                 check.setAttribute('style','margin:5px');
-                check.setAttribute();
+                // if(data.checkboxnum == 1){
+                //     check.setAttribute('checked',true);
+                // }
+                check.addEventListener('click',function(){
+                    itemFinish();
+                })
                 item.appendChild(check);
                 //input
                 const input = document.createElement('input');
-                input.setAttribute('disabled','');
+                input.setAttribute('disabled','false');
                 input.setAttribute('style','margin:5px');
-                //input.value=  ;
+                input.value= data[index].name ;
                 item.appendChild(input);
                 item.setAttribute('style','display:flex');
                 item.setAttribute('style','margin:10px');
@@ -87,14 +93,17 @@
                 const change = document.createElement('button');
                 change.innerText = '修改';
                 change.setAttribute('style','margin-left:10px');
+                change.setAttribute('id','changeContent');
+                change.setAttribute('data-num',index)
                 const del = document.createElement('button');
                 del.innerText = '刪除';
                 del.setAttribute('style','margin:5px');
+                del.setAttribute('id','delContent')
                 item.appendChild(change);
                 item.appendChild(del);
                 itemArea.appendChild(item);
                 change.addEventListener('click',function(){
-                    changeEvent();
+                    Revise();
                 })
                 del.addEventListener('click',function(){
                     delEvent();
@@ -102,27 +111,56 @@
             })
         }
         
-        
+        function itemFinish(e){
+            let idx = e.target.getAttribute('data-num');
+            let dataList = JSON.parse(localStorage.getItem('list'));
+           if(dataList[idx].checkboxnum == 0){
+              data.checkboxnum = 1
+           } 
+        }
         
         
         function addItem(){
-
-            
+            renderData();
         }
         
         function Revise(){
             input.removeAttribute('disabled');
+            renderData();
         }
         function delEvent(){
+            
         }
 
         //window.onload
         window.onload = function(){
             
-            add.addEventListener('click',function(){
-               addItem(); 
-            })
-            
+            let dataList = [];
+            if(localStorage.getItem('list') == null){
+                let dataObj1 =
+                {
+                    checkboxnum : 1,
+                    name : '行事曆'
+                }
+                let dataObj2 =
+                {
+                    checkboxnum : 0,
+                    name : '地圖'
+                }
+                let dataObj3 =
+                {
+                    checkboxnum : 0,
+                    name : '小瑪莉'
+                }
+                dataList.push(dataObj1);
+                dataList.push(dataObj2);
+                dataList.push(dataObj3);
+            }
+            else{
+                dataList = JSON.parse(localStorage.getItem('list'));
+            }
+            localStorage.setItem('list',JSON.stringify(dataList));
+            renderData();
             
         }
     </script>

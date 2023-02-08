@@ -63,48 +63,139 @@
         const inputText = document.querySelector('#inputValue')
 
         //function
-        function addItem(){
-            //產生checkbox
-            let item = document.createElement('div');
-            let check = document.createElement('input');
-            check.setAttribute('type','checkbox');
-            check.setAttribute('style','margin:5px');
-            item.appendChild(check);
-            
-            //產生input文字
-            let input = document.createElement('input');
-            input.setAttribute('disabled','');
-            input.setAttribute('style','margin:5px');
-            input.value= inputText.value ;
-            item.appendChild(input);
-            item.setAttribute('style','display:flex');
-            item.setAttribute('style','margin:10px');
+        function renderData(){
+            itemArea.innerHTML = '';
+            let data = JSON.parse(localStorage.getItem('list'));
+            data.forEach((listName,index) =>{
+                //checkbox
+                const item = document.createElement('div');
+                item.setAttribute('class','item');
+                var check = document.createElement('input');
+                check.setAttribute('type','checkbox');
+                check.setAttribute('id',`check${index}`);
+                check.setAttribute('data-num',index);
+                check.setAttribute('style','margin:5px');
+                item.appendChild(check);
+                check.addEventListener('click',function(e){
+                    checkEvent(e);
+                })
+                
+                //input
+                const input = document.createElement('input');
+                input.setAttribute('disabled','false');
+                input.setAttribute('id',`input${index}`)
+                input.setAttribute('style','margin:5px');
+                input.value= data[index].name ;
+                item.appendChild(input);
+                item.setAttribute('style','display:flex');
+                item.setAttribute('style','margin:10px');
            
-            //產生"修改","刪除"按鈕
-            let change = document.createElement('button');
-            change.innerText = '修改';
-            //change.setAttribute('onclick',changeEvent());
-            change.setAttribute('style','margin-left:10px');
-            let del = document.createElement('button');
-            del.innerText = '刪除';
-            //del.setAttribute('onclick',delEvent());
-            del.setAttribute('style','margin:5px');
-            item.appendChild(change);
-            item.appendChild(del);
-            itemArea.appendChild(item);
+                //"修改","保存","刪除"
+                const change = document.createElement('button');
+                change.innerText = '修改';
+                change.setAttribute('style','margin-left:10px');
+                change.setAttribute('id',`change${index}`);
+                change.setAttribute('data-num',index);
+
+                const save = document.createElement('button');
+                save.innerText = '保存';
+                save.setAttribute('style','margin-left:10px');
+                save.setAttribute('style','display:none');
+                save.setAttribute('id',`save${index}`);
+                save.setAttribute('data-num',index);
+
+                const del = document.createElement('button');
+                del.innerText = '刪除';
+                del.setAttribute('style','margin-left:5px');
+                del.setAttribute('id',`delContent${index}`)
+                item.appendChild(change);
+                item.appendChild(save);
+                item.appendChild(del);
+                itemArea.appendChild(item);
+                
+                
+                                                 // e:event
+                change.addEventListener('click',function(e){
+                    console.log(e.target);
+                    Revise(e);
+                })
+                
+                save.addEventListener('click',function(e){
+                    console.log(e.target);
+                    saveEvent(e);
+                })
+                del.addEventListener('click',function(e){
+                    console.log(e.target);
+                    delEvent(e);
+                })
+            })
+        }
+        
+        function checkEvent(e){
+            let num = e.target.getAttribute('data-num');
+            let checkOK = document.querySelector(`#check${num}`);
+            let dataList = JSON.parse(localStorage.getItem('list'))
+            if (dataList[num].checkboxnum == 0){
+                dataList[num].checkboxnum = 1;
+                localStorage.setItem('list',JSON.stringify(dataList));
+                checkOK.setAttribute('checked',true)
+            }
+        }
+        function addItem(e){
+            let myInput = inputText.value;
+            let dataList = JSON.parse(localStorage.getItem('list'))
+            let dataObj =
+            {
+                checkboxnum : 0 ,
+                name : myInput
+            }
+            dataList.push(dataObj);
+            localStorage.setItem('list',JSON.stringify(dataList));
+            renderData();
+            inputText.value = '';
+        }
+        
+        function Revise(e){
+            let num = e.target.getAttribute('data-num');
+            //let changeBtn = e.target.getAttribute(`#change${num}`)
+            let reviseText = document.querySelector(`#input${num}`);
+            const checkBtn = document.querySelector(`#check${num}`);
+            const reviseBtn = document.querySelector(`#change${num}`);
+            const saveBtn = document.querySelector(`#save${num}`);
+            reviseText.removeAttribute('disabled');
+            checkBtn.setAttribute('style','display:none');
+            reviseBtn.setAttribute('style','display:none');
+            saveBtn.removeAttribute('style','display:none');
         }
 
-        function changeEvent(){
-            input.removeAttribute('disabled');
+        function saveEvent(e){
+            debugger
+            let num = e.target.getAttribute('data-num');
+            let newInput = document.querySelector(`#input${num}`);
+            console.log(newInput);
+            let dataList = JSON.parse(localStorage.getItem('list'));
+            dataList[num].name = newInput.value;
+            console.log(newInput.value);
+            localStorage.setItem('list',JSON.stringify(dataList));
+            renderData();
+        }
+        function delEvent(e){
+            let num = e.target.getAttribute('data-num');
+            let dataList = JSON.parse(localStorage.getItem('list'));
+            dataList.splice(num,1);
+            localStorage.setItem('list',JSON.stringify(dataList));
+            renderData();
         }
 
         //window.onload
         window.onload = function(){
-            
             add.addEventListener('click',function(){
-               addItem(); 
+                addItem();
             })
-            
+            let dataList = [];
+            dataList = JSON.parse(localStorage.getItem('list'));
+            localStorage.setItem('list',JSON.stringify(dataList));
+            renderData();
             
         }
     </script>

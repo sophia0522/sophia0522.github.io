@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div class="container">
         <input id="check" type="checkbox" name="" id="">
@@ -13,6 +15,20 @@
         <button>修改</button>
         <button>刪除</button>
     </div>
-    
+    <script>
+        let obj = {
+            a: 'a',
+            1: 'b',
+            '這是中文字': 'c',
+            'b': 'd',
+            '--some data': 'e'
+        }
+        console.log(Object.keys(obj));
+        console.log(Object.values(obj));
+        obj.forEach(function (item) {
+            console.log(item.keys);
+        })
+    </script>
 </body>
+
 </html>
