@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .delWrapper{
+              position: relative;
+              width: 20px;
+              height: 20px;
+              top: 24px;
+              right: 20px;
+          }
+          .del{
+              position: absolute;
+              width:20px;
+              height: 20px;
+              border: 1px solid;
+              border-radius: 20px;
+          }
+          .del::before,.del::after {
+              position: absolute;
+              content: ' ';
+              background-color: #898989;
+              width: 0px;
+              height: 13px;
+              border:1px solid;
+              left: 9px;
+              top: 2px;
+          }
+          .del::before {
+              transform: rotate(45deg);
+          }
+          
+          .del::after {
+              transform: rotate(-45deg);
+          }
+    </style>
+</head>
+<body>
+    <div className='delWrapper'>
+        <div className='del'></div>
+    </div>
+</body>
+</html>
