@@ -19,11 +19,15 @@
 .content{
     margin: 50px;
 }
+
 .title,.comment{
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 10px 0px;
+}
+.title img{
+    width: 70%;
 }
 h1{
     font-size: 40px;
@@ -36,7 +40,7 @@ form{
     display: flex;
     flex-direction: column;
 }
-.select,.email,.passWord{
+.language,.email,.passWord{
     margin: 10px 0px;
 }
 select,input{
@@ -45,7 +49,7 @@ select,input{
     font-size: 100%;
     color: var(--kk-text-color); 
 }
-.email{
+.email,.passWord{
     position: relative;
 }
 .email i{
@@ -55,9 +59,9 @@ select,input{
     color: var(--kk-text-color);
 }
 
-.passWord{
+/* .passWord{
     position: relative;
-}
+} */
 .passWord i{
     position: absolute;
     right: 3px;
