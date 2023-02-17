@@ -36,17 +36,39 @@ form{
     display: flex;
     flex-direction: column;
 }
-select,input{
+.select,.email,.passWord{
     margin: 10px 0px;
+}
+select,input{
+    width: 100%;
     height: 23px;
     font-size: 100%;
+    color: var(--kk-text-color); 
+}
+.email{
+    position: relative;
+}
+.email i{
+    position: absolute;
+    right: 5px;
+    top: 5px;
     color: var(--kk-text-color);
-    
+}
+
+.passWord{
+    position: relative;
+}
+.passWord i{
+    position: absolute;
+    right: 3px;
+    top: 5px;
+    color: var(--kk-text-color); 
 }
 .rememberForget{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 10px 0;
 }
 .remember{
     display: flex;
