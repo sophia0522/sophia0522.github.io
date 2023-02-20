@@ -2,9 +2,7 @@
     margin: 0;
     padding: 0;
 }
-html body{
-    height: 100%;
-}
+
 header{
     padding: 5px;
     color: white;
@@ -28,7 +26,7 @@ main{
 }
 .option{
     width: 20%;
-    height: 100%;
+    /* min-height: 100vh; */
     background-color: rgb(205, 197, 197);
 }
 nav{

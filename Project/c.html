@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        header {
+            padding: 5px;
+            color: white;
+            background-color: rgb(54, 54, 223);
+        }
+
+        .title {
+            display: flex;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 5px;
+            font-size: 35px;
+        }
+
+        h2 {
+            margin: 5px;
+            font-size: 20px;
+        }
+
+        main {
+            display: flex;
+
+        }
+
+        .option {
+            width: 20%;
+
+            background-color: rgb(205, 197, 197);
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            padding: 100px;
+        }
+
+        .box {
+            width: 300px;
+            height: 200px;
+            border: 1px solid;
+            border-radius: 5%;
+            margin: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="title">
+            <h1>Everyday</h1>
+            <h2>預定管理系統</h2>
+        </div>
+    </header>
+    <main>
+        <div class="option">
+            <nav>
+                <a href="">帳號管理</a>
+                <a href="">主控台</a>
+                <a href="">行程管理</a>
+                <a href="">庫存管理</a>
+                <a href="">訂單管理</a>
+                <a href="">核銷管理</a>
+            </nav>
+        </div>
+        <section class="content">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </section>
+    </main>
+</body>
+
+</html>
