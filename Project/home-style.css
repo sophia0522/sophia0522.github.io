@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+body{
+    background-color: rgb(222, 214, 214);
+    
+}
 header{
     padding: 5px;
     color: white;
@@ -22,12 +26,14 @@ h2{
 }
 main{
     display: flex;
+    min-height: 100vh;
     
 }
 .section{
     width: 20%;
-    /* min-height: 100vh; */
-    background-color: rgb(205, 197, 197);
+    background-color: rgb(233, 224, 224);
+    margin: 10px;
+    box-shadow: 0 0 3px;
 }
 nav{
     display: flex;
@@ -46,36 +52,54 @@ a{
     justify-content: center;
     align-items: center;
 }
-a div{
+.a-title-group{
+    padding-bottom: 50px;
+    color: blue;
+}
+.option:hover{
+    color: blue;
+}
+.icon{
     width: 30px;
+}
+
+.a-title,.a-text{
+    width: 90px;
     
 }
-a .a-text{
-    width: 70px;
-}
-a i{
-    justify-content:flex-end;
-    align-items: center;
-}
-
 
 .content{
+    background-color: white;
+    box-shadow: 0 0 3px;
+    margin: 10px;
+    position: relative;
+}
+.content-title{
+    position: absolute;
+    left: 100px;
+    top: 70px;
+    color: blue;
+}
+.box-group{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 80%;
-    padding: 100px;
+    padding: 130px 150px;
+    
+    
+    
 }
 .box{
     width: 300px;
     height: 200px;
-    border: 1px solid;
     border-radius: 5%;
-    margin: 20px;
+    margin: 15px;
     display: flex;
     flex-direction: column;
     position: relative;
+    box-shadow: 0 0 3px;
     
 }
 .box-title{
