@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
 }
-.content{
+.container{
     width: 800px;
     margin: 30px;
     justify-content: center;
@@ -34,14 +34,14 @@ h2{
     margin: 30px 20px ;
 }
 .input-area{
-    width: 500px;
+    width: 600px;
 }
 input,select{
     width: 100%;
     height: 25px;
 }
 .phoneNumber{
-    width: 300px;
+    width: 400px;
 }
 .zone{
     width: 195px;
@@ -56,10 +56,10 @@ input,select{
     padding-top: 30px;
 }
 .resetCancel{
-    margin: 0px 20px;
+    margin-left: 20px;
 }
 .storge{
-    margin: 0px 20px;
+    margin-right: 40px;
 }
 button{
     width: 100px;
@@ -72,6 +72,6 @@ button{
     color: white;
 }
 .btn-storge{
-    background-color: rgb(26, 189, 26);
+    background-color: rgb(54, 159, 54);
     color: white;
 }
