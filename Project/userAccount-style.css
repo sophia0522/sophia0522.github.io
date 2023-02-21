@@ -2,13 +2,16 @@
     margin: 0;
     padding: 0;
 }
-.container{
-    width: 500px;
+.content{
+    width: 800px;
+    margin: 30px;
     justify-content: center;
     align-items: center;
 }
+/* 標題 */
 .title{
-    margin: 10px 0px;
+    margin: 20px 20px;
+    
 }
 h2{
     color: blue;
@@ -19,4 +22,56 @@ h2{
     height: 1px;
     border: solid #ACC0D8 1px;
     opacity: 0.1;
+    justify-content: center;
+    align-items: center;
+}
+/* 資料 */
+
+.firstName,.lastName,.email,.phone,.language{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 20px ;
+}
+.input-area{
+    width: 500px;
+}
+input,select{
+    width: 100%;
+    height: 25px;
+}
+.phoneNumber{
+    width: 300px;
+}
+.zone{
+    width: 195px;
+    
+}
+/* 按鈕 */
+.btn-area{
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+}
+.resetCancel{
+    margin: 0px 20px;
+}
+.storge{
+    margin: 0px 20px;
+}
+button{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.btn-reset{
+    background-color: rgb(39, 164, 242);
+    color: white;
+}
+.btn-storge{
+    background-color: rgb(26, 189, 26);
+    color: white;
 }

@@ -1,90 +1,68 @@
-<!DOCTYPE html> 
-<html> 
-  
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <link rel="stylesheet" href= 
-"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
-      
-    <style> 
-      
-        /* Assign full width inputs*/ 
-        input[type=text], 
-        input[type=password] { 
-            width: 100%; 
-            padding: 12px 40px; 
-            margin: 8px 0; 
-            display: inline-block; 
-            border: 1px solid #ccc; 
-            box-sizing: border-box; 
-        } 
-          
-        /* Set a style for the buttons*/ 
-        button { 
-            background-color: #4CAF50; 
-            color: white; 
-            padding: 14px 20px; 
-            margin: 8px 0; 
-            border: none; 
-            cursor: pointer; 
-            width: 100%; 
-        } 
-  
-        /* Set a hover effect for the button*/ 
-        button:hover { 
-            opacity: 0.8; 
-        } 
-  
-        /* Set extra style for the cancel button*/ 
-        .container { 
-            padding: 16px; 
-        } 
-      
-        .fontuser {
-            position: relative;
-        }
-          
-        .fontuser i{
-            position: absolute;
-            left: 15px;
-            top: 40px;
-            color: gray;
-        }
-          
-        .fontpassword {
-            position: relative;
-        }
-          
-        .fontpassword i{
-            position: absolute;
-            left: 15px;
-            top: 40px;
-            color: gray;
-        }
-    </style> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="userAccount-style.css">
+
 </head>
-  
-<body> 
-    <div class="container"> 
-        <div class="fontuser">
-            <label><b>Username</b></label> 
-            <input type="text" 
-                    placeholder="Enter Username"
-                    name="uname" required> 
-            <i class="fa fa-user fa-lg"></i>
-        </div>
-          
-        <div class="fontpassword">
-            <label><b>Password</b></label> 
-            <input type="password"
-                    placeholder="Enter Password"
-                    name="psw" required> 
-            <i class="fa fa-key fa-lg"></i> 
-        </div>     
-          
-        <button type="submit">Login</button> 
-        <input type="checkbox" checked="checked">
-                Remember me 
-    </div> 
-</body> 
-  
+
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="title">
+                <div>
+                    <h2>使用者帳號</h2>
+                </div>
+            </div>
+            <div class="line-bottom"></div>
+            <div action="">
+                <div class="row mb-3">
+                    <label for="form-Input" class="col-sm-2 col-form-label">名*</label>
+                    <input type="text">
+                </div>
+                <div class="row mb-3">
+                    <label for="inputtext" class="col-sm-2 col-form-label">姓*</label>
+                    <input type="text">
+                </div>
+                <div class="row mb-3">
+                    <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="inputEmail3">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="" class="col-sm-5 col-form-label">手機號碼*</label>
+                    <input type="text">
+                </div>
+                <div class="row mb-3">
+                    <label for="" class="col-sm-2 col-form-label">語言*</label>
+                    <select name="" id="">
+                        <option value="">繁體中文</option>
+                        <option value="">English</option>
+                    </select>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    </div>
+
+
+    
+    
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>
