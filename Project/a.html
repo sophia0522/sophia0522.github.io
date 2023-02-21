@@ -6,63 +6,84 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="userAccount-style.css">
 
 </head>
 
 <body>
+
     <div class="container">
-        <div class="content">
-            <div class="title">
-                <div>
-                    <h2>使用者帳號</h2>
-                </div>
+        <div class="title">
+            <div>
+                <h2>使用者帳號</h2>
             </div>
             <div class="line-bottom"></div>
-            <div action="">
-                <div class="row mb-3">
-                    <label for="form-Input" class="col-sm-2 col-form-label">名*</label>
+        </div>
+
+        <form class="data" action="">
+            <div class="firstName">
+                <label for="" class="">名*</label>
+                <div class="input-area">
                     <input type="text">
                 </div>
-                <div class="row mb-3">
-                    <label for="inputtext" class="col-sm-2 col-form-label">姓*</label>
+
+            </div>
+            <div class="lastName">
+                <label for="" class="">姓*</label>
+                <div class="input-area">
                     <input type="text">
                 </div>
-                <div class="row mb-3">
-                    <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputEmail3">
-                    </div>
+
+            </div>
+            <div class="email">
+                <label for="" class="">電子信箱*</label>
+                <div class="input-area">
+                    <input type="email" class="" id="" disabled>
                 </div>
-                <div class="row mb-3">
-                    <label for="" class="col-sm-5 col-form-label">手機號碼*</label>
-                    <input type="text">
+            </div>
+            <div class="phone">
+                <label for="" class="">手機號碼*</label>
+                <div class="input-area">
+                    <select class="zone" name="" id="">
+                        <option value="">TW-台灣 +886</option>
+                    </select>
+                    <input class="phoneNumber" type="text">
                 </div>
-                <div class="row mb-3">
-                    <label for="" class="col-sm-2 col-form-label">語言*</label>
+            </div>
+            <div class="language">
+                <label for="" class="">語言*</label>
+                <div class="input-area">
                     <select name="" id="">
                         <option value="">繁體中文</option>
                         <option value="">English</option>
                     </select>
                 </div>
-
             </div>
+
         </form>
+        <div class="btn-area">
+            <div class="resetCancel">
+                <button class="btn-cancel">取消</button>
+                <button class="btn-reset">更新密碼</button>
+            </div>
+            <div class="storge">
+                <button class="btn-storge">儲存</button>
+            </div>
+        </div>
     </div>
 
+
+
     </div>
+
+
+
+
+
 
 
     
-    
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
 </body>
 
 </html>
