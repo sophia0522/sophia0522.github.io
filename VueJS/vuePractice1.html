@@ -10,13 +10,34 @@
 <body>
     <div id="app1">
         <h1>{{title}}</h1>
+        <h1>{{number}}</h1>
+        <h1>{{isTrue ? 'A':'B'}}</h1>
+    </div>
+
+    <div id="app2">
+        <h1>{{title}}</h1>
     </div>
 
     <script>
+        //old(js原來寫法)
+        // const h1 = document.querySelector('#app1 h1')
+        // h1.innerText = 'Build School'
+        
+        //Vue
         const app1 = new Vue({
+            name:'Sophia',
             el:'#app1',
             data:{
-                title:'Build School'
+                title:'Build School',
+                number:10,
+                isTrue:false
+            }
+        })
+
+        const app2 = new Vue({
+            el:'#app2',
+            data:{
+                title:'App2'
             }
         })
     </script>
