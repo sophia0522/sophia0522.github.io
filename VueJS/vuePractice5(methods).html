@@ -8,20 +8,22 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
 <body>
-    
     <div id="app1">
+        <button v-on:click="sayHello">botton1</button>
+        <button @mouseleave="sayHello">button2</button>
     </div>
 
     <script>
-        
         const app1 = new Vue({
-            el: '',
-            data:{
+            el:'#app1',
+            data:{},
+            methods:{
+                sayHello(){
+                    alert('wwwww')
+                }
                 
             }
         })
-
-        
     </script>
 </body>
 </html>
