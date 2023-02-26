@@ -8,36 +8,36 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
 <body>
-    <div>
-        <input id="additem" type="text">
-        <button @click="addtodo">新增</button>
+    <div id="additem">
+        <input  type="text" v-model="inputval">
+        <button>新增</button>
+        
     </div>
-    <div v-for="item in list">
+    <!-- <div v-for="item in list">
         <input id="index" type="checkbox" v-model="item.ischecked">
         <input type="text" v-model="item.title" disabled>
         <button id="rewrite">修改</button>
         <button id="delete">刪除</button>
-    </div>
+    </div> -->
 
     <script>
-        const input = new Vue({
+        const item = new Vue({
             el:'#additem',
             data:{
+                inputval:'aaaaa'
+                // obj:{},
                 
-                obj:{},
-                
-                list:[
-                    {ischecked: false, title:'AAAAA'},
-                    {ischecked: false, title:'BBBBB'},
-                    {ischecked: false, title:'CCCCC'}
-                ]
+                // list:[
+                //     {ischecked: false, title:'AAAAA'},
+                //     {ischecked: false, title:'BBBBB'},
+                //     {ischecked: false, title:'CCCCC'}
+                // ]
             },
-            methods:{
-                addtodo(){
+            // methods:{
+            //     addtodo(){
                     
-                    
-                }
-            }
+            //     }
+            // }
         })
     </script>
 </body>
