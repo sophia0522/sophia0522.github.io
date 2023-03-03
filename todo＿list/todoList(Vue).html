@@ -13,31 +13,24 @@
         <button>新增</button>
         
     </div>
-    <!-- <div v-for="item in list">
-        <input id="index" type="checkbox" v-model="item.ischecked">
-        <input type="text" v-model="item.title" disabled>
-        <button id="rewrite">修改</button>
-        <button id="delete">刪除</button>
-    </div> -->
+    <div v-for="item in list">
+        <input type="checkbox">
+        <input type="text" disabled>
+        <button>修改</button>
+        <button>刪除</button>
+    </div>
 
     <script>
         const item = new Vue({
             el:'#additem',
             data:{
-                inputval:'aaaaa'
-                // obj:{},
+                inputval:'',
+                list:[
+                    {ischecked: false, title:item.inputval}
+                ]
                 
-                // list:[
-                //     {ischecked: false, title:'AAAAA'},
-                //     {ischecked: false, title:'BBBBB'},
-                //     {ischecked: false, title:'CCCCC'}
-                // ]
+                
             },
-            // methods:{
-            //     addtodo(){
-                    
-            //     }
-            // }
         })
     </script>
 </body>
