@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Load required Bootstrap and BootstrapVue CSS -->
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+
+    <!-- Load polyfills to support older browsers -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver"
+        crossorigin="anonymous"></script>
+
+    <!-- Load Vue followed by BootstrapVue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+
+    <!-- Load the following for BootstrapVueIcons support -->
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
+    <style>
+        .tab-content{
+            height: 500px;
+            /* overflow-y: ; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container">
+        <h1>註冊成為會員</h1>
+        <b-card no-body>
+            <b-tabs v-modal="tabIndax" small card fill>
+                <b-tab title="隱私政策">
+                    <b-cards>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur alias beatae, debitis similique asperiores minus dignissimos ab dolorem saepe nostrum nulla tempora iste nihil voluptas fugiat ad doloremque, nisi architecto laboriosam a sunt. Nihil laboriosam quam repellat quidem illo voluptas officia quibusdam placeat in nisi explicabo consectetur suscipit sapiente, voluptatum non aliquid cum neque dicta ad autem excepturi dolorem rerum libero illum. Voluptas corrupti delectus dicta natus fuga quas commodi beatae vero aspernatur dolore sint corporis, magnam eos distinctio assumenda minima incidunt velit maxime saepe qui, labore, similique optio? Voluptates odit hic veniam quis nihil enim iure laboriosam voluptatibus unde dignissimos! Cumque, inventore totam! Possimus quasi modi id, enim neque necessitatibus iusto, unde laboriosam explicabo dolor sapiente cum dignissimos, fugiat est a voluptatibus illo qui velit recusandae? Explicabo voluptates iure corporis. Odio, enim eum nobis ad delectus dolores magni vero soluta eos ullam adipisci rem perspiciatis, quibusdam laborum excepturi. Amet optio consequatur quis commodi aliquid sed quae ducimus corporis animi adipisci dicta tenetur autem laborum architecto esse vitae iure aliquam similique, eligendi dignissimos accusantium enim porro quos accusamus. Dolor facere corporis velit expedita reprehenderit amet, et placeat, quo, excepturi ex delectus laborum facilis alias magnam repellat. Quaerat labore velit assumenda possimus commodi soluta, necessitatibus aliquid explicabo error adipisci sint vero hic, neque minima ipsa quae laudantium? Aspernatur incidunt accusantium minus autem, sapiente molestiae nemo cum hic. Repellat eligendi accusantium ea exercitationem, amet delectus doloribus sunt fugiat dicta magni mollitia modi, tempore rerum adipisci a, quasi maxime ipsum odit odio sed nihil! Atque culpa error saepe neque totam magni optio, voluptatibus deserunt alias perferendis ipsam a sapiente suscipit consequuntur quisquam repudiandae placeat, earum facere ea iste et! Assumenda pariatur illo iure odit deleniti reprehenderit dolores ad sunt consequatur eius nostrum sed, blanditiis eveniet totam minima quis in explicabo adipisci, ex quaerat necessitatibus ipsam ut. A ullam sed nihil perferendis exercitationem pariatur id tempora rerum architecto molestiae. Repellendus praesentium, sunt, natus a consequatur aspernatur accusantium harum beatae tempore veniam veritatis. Mollitia laborum tempore consectetur odio, eligendi dolor commodi eius labore. Sint impedit, temporibus facilis magnam repellat nulla deserunt est, a ratione ea molestiae asperiores maxime ipsam aliquid. Quos fuga atque ipsam natus placeat autem provident quis quibusdam, neque, eos ea eum! Exercitationem, asperiores velit. Eos, iusto? Earum, temporibus numquam molestiae ea aliquam sed corporis aut culpa. Id, exercitationem molestias unde quas in minus officiis ad qui aliquid sunt earum, cumque magni eius repellendus iste incidunt? Omnis, quam autem mollitia iure sint fuga molestias est corrupti possimus sunt ducimus ea quisquam laudantium dicta repellendus recusandae impedit eum sapiente saepe. Autem facilis velit vitae ab ea pariatur dolorem itaque, sequi eveniet id repellat aliquam animi rem deleniti debitis consectetur minima earum tempora eius, adipisci ducimus suscipit alias aperiam? Libero provident magni sequi facilis voluptatum consequatur quos explicabo consectetur nesciunt quo temporibus architecto sunt eaque, aspernatur voluptatibus at, quod iusto, minima minus eum labore itaque unde? Quidem nam necessitatibus explicabo, optio magnam, vel asperiores dolore atque fugit sit in dolorum tenetur natus illo? Voluptatibus, neque!</b-cards>
+                    <div class="d-flex justify-content-center mt-3">
+                        <input v-model="signupData.alreadyCheck" id="check" class="form-check-input" type="checkbox">
+                        <label for="check" class="form-check-label">我已滿18歲</label>
+                    </div>
+                </b-tab>
+                <b-tab title="填寫基本資料">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-md-6 mb-3">
+                                <label for="">Account</label>
+                                <input v-model="signupData.member.account" :class="{'is-invalid':signupData.memberCheck.accountError}" type="text" class="form-control">
+                                <div class="text-danger small mt-1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </b-tab>
+            </b-tabs>
+        </b-card>
+        <div class="d-flex justify-content-between mt-3">
+            <b-button class="tabIndex--">上一步</b-button>
+            <b-button v-if="tabIndex &lt 3" class="tabIndex++">下一步</b-button>
+            <b-button v-if="tabIndex == 3" variant="success">註冊</b-button>
+        </div>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el:'app',
+            data:{
+                tabIndex: 0,
+                signupData:{
+                    alreadyCheck:false,
+                    member:{
+                        account:''
+                    },
+                    memberCheck:{
+                        accountError:false,
+                        accountErrorMsg:''
+                    }
+                }
+            },
+            computed:{
+                nextable(){
+                    if(this.tabIndex == 0){
+                        if(this.signupData.alreadyCheck == false) return false
+                    }
+                    if(this.tabIndex == 1){
+                        return this.checkMemberVertify()
+                    }
+
+                    return true
+                }
+            },
+            watch:{
+                'signupData.member':{
+                    immediate:true,
+                    deep:true,
+                    handler(){
+                        this.checkMember()
+                    }
+                }
+            },
+            methods:{
+                checkMember(){
+                    if(this.signupData.member.account == ''){
+                        this.signupData.memberCheck.accountError = true
+                        this.signupData.memberCheck.accountErrorMsg = '帳號必填'
+                    }else{
+                        this.signupData.memberCheck.accountError = false
+                        this.signupData.memberCheck.accountErrorMsg = ''
+                    }
+                },
+                checkMemberVertify(){
+                    for(let prop in this.signupData){
+                        
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
