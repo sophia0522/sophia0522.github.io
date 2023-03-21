@@ -9,8 +9,8 @@
     <style>
         
         * {
-          margin: 0px;
-          padding: 0px;  
+            margin: 0px;
+            padding: 0px;  
         }
         .container{
             margin: auto;
@@ -88,7 +88,7 @@
                 item.appendChild(input);
                 item.setAttribute('style','display:flex');
                 item.setAttribute('style','margin:10px');
-           
+                
                 //"修改","刪除"
                 const change = document.createElement('button');
                 change.innerText = '修改';
@@ -114,9 +114,9 @@
         function itemFinish(e){
             let idx = e.target.getAttribute('data-num');
             let dataList = JSON.parse(localStorage.getItem('list'));
-           if(dataList[idx].checkboxnum == 0){
-              data.checkboxnum = 1
-           } 
+            if(dataList[idx].checkboxnum == 0){
+                data.checkboxnum = 1
+            } 
         }
         
         

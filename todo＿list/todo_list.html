@@ -65,7 +65,8 @@
         //function
         function renderData(){
             itemArea.innerHTML = '';
-            let data = JSON.parse(localStorage.getItem('list'));
+            let data = [];
+            data = JSON.parse(localStorage.getItem('list'));
             data.forEach((listName,index) =>{
                 //checkbox
                 const item = document.createElement('div');
@@ -193,6 +194,7 @@
                 addItem();
             })
             let dataList = [];
+            // localStorage.setItem(list,JSON.stringify(dataList));
             dataList = JSON.parse(localStorage.getItem('list'));
             localStorage.setItem('list',JSON.stringify(dataList));
             renderData();
