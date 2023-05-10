@@ -9,8 +9,8 @@
     <style>
         
         * {
-          margin: 0px;
-          padding: 0px;  
+            margin: 0px;
+            padding: 0px;  
         }
         .container{
             margin: auto;
@@ -49,7 +49,6 @@
             <input id="add" type="button" value="新增" style="width: 40px;height: 23px;">
         </div>
         <div class="itemArea">
-
         </div>
     </div>
 
@@ -112,13 +111,14 @@
                 del.innerText = '刪除';
                 del.setAttribute('style','margin-left:5px');
                 del.setAttribute('id',`delContent${index}`)
+                del.setAttribute('data-num',index);
                 item.appendChild(change);
                 item.appendChild(save);
                 item.appendChild(del);
                 itemArea.appendChild(item);
                 
                 
-                                                 // e:event
+                 // e:event
                 change.addEventListener('click',function(e){
                     console.log(e.target);
                     Revise(e);
@@ -131,6 +131,7 @@
                 del.addEventListener('click',function(e){
                     console.log(e.target);
                     delEvent(e);
+                    
                 })
             })
         }
@@ -156,7 +157,7 @@
                 checkboxnum : 0 ,
                 name : myInput
             }
-            console.log(dataObj);
+            // console.log(dataObj);
             dataList.push(dataObj);
             localStorage.setItem('list',JSON.stringify(dataList));
             renderData();
@@ -178,17 +179,20 @@
 
         function saveEvent(e){
             let num = e.target.getAttribute('data-num');
+            // console.log(num)
             let newInput = document.querySelector(`#input${num}`);
-            console.log(newInput);
+            // console.log(newInput);
             let dataList = JSON.parse(localStorage.getItem('list'));
             dataList[num].name = newInput.value;
-            console.log(newInput.value);
+            // console.log(newInput.value);
             localStorage.setItem('list',JSON.stringify(dataList));
             renderData();
         }
         function delEvent(e){
             let num = e.target.getAttribute('data-num');
+            console.log(num)
             let dataList = JSON.parse(localStorage.getItem('list'));
+            console.log(dataList);
             dataList.splice(num,1);
             localStorage.setItem('list',JSON.stringify(dataList));
             renderData();
