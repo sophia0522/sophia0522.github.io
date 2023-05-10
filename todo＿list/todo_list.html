@@ -67,6 +67,9 @@
             itemArea.innerHTML = '';
             let data = [];
             data = JSON.parse(localStorage.getItem('list'));
+            if (data == null) {
+                data = []
+            }
             data.forEach((listName,index) =>{
                 //checkbox
                 const item = document.createElement('div');
@@ -90,7 +93,7 @@
                 item.appendChild(input);
                 item.setAttribute('style','display:flex');
                 item.setAttribute('style','margin:10px');
-           
+            
                 //"修改","保存","刪除"
                 const change = document.createElement('button');
                 change.innerText = '修改';
@@ -145,11 +148,15 @@
         function addItem(e){
             let myInput = inputText.value;
             let dataList = JSON.parse(localStorage.getItem('list'))
+            if (dataList == null) {
+                dataList = [];
+            }
             let dataObj =
             {
                 checkboxnum : 0 ,
                 name : myInput
             }
+            console.log(dataObj);
             dataList.push(dataObj);
             localStorage.setItem('list',JSON.stringify(dataList));
             renderData();
@@ -170,7 +177,6 @@
         }
 
         function saveEvent(e){
-            debugger
             let num = e.target.getAttribute('data-num');
             let newInput = document.querySelector(`#input${num}`);
             console.log(newInput);
